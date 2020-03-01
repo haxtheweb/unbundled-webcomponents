@@ -37,7 +37,7 @@ This has a configuration of polymer.json, a format used by the polymer CLI in or
 This uses the polymer CLI for the time being. Once other plugins are written to do in-place, unbundled file building we'll update but for now it does a great job and has no requirement on using polymer in your project as it's just for commandline.
 
 ## How does it work?
-The file in `integrations/build.js` does feature detection in order to establish if this is an ESM capable platform or needs a different build at run time. This reduces the integration with your platform / CMS / application down to two lines of `<script>` tags. The 1st adds support for CDNs as well as an option for `forceUpdate` which if the browser can't serve the build.js file it will force the user to a page asking them to upgrade.
+The file in `/build.js` does feature detection in order to establish if this is an ESM capable platform or needs a different build at run time. This reduces the integration with your platform / CMS / application down to two lines of `<script>` tags. The 1st adds support for CDNs as well as an option for `forceUpdate` which if the browser can't serve the build.js file it will force the user to a page asking them to upgrade.
 
 We feature detect `import()` which 90+% of traffic supports as of end of 2019 and inject ES module based `<script type="module">` imports. From there we try and detect which polyfills are needed based on the platform.
 
