@@ -208,6 +208,7 @@
   },
   "scripts": {
     "build": "polymer build && yarn run terser",
+    "start": "yarn run build",
     "terser": "gulp"
   }
 }

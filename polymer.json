@@ -56,7 +56,7 @@
   ],
   "moduleResolution": "node",
   "npm": true,
-  "lint": {
+  "lint": { 
     "rules": ["polymer-3"]
   }
 }

@@ -14,13 +14,9 @@ try {
     def.parentNode.insertBefore(ani, def);
   }
   var build = document.createElement('script');
-  build.src = cdn + 'build/es6/dist/build.js';
+  build.src = cdn + 'build/es6/dist/app.js';
   build.type = 'module';
   def.parentNode.insertBefore(build, def);
-  var build2 = document.createElement('script');
-  build2.src = './custom/build/custom.es6.js';
-  build2.type = 'module';
-  def.parentNode.insertBefore(build2, def);
 } catch (err) {
   var ancient=false;
   try {
@@ -41,8 +37,7 @@ try {
         cdn + "build/es6-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
         cdn + "assets/babel-top.js",
         cdn + "build/es6-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js",
-        cdn + "build/es6-amd/dist/build.js",
-        "./custom/build/custom.es6-amd.js"
+        cdn + "build/es6-amd/dist/app.js"
       ];
     }
     else {
@@ -52,13 +47,8 @@ try {
         cdn + "build/es5-amd/node_modules/fetch-ie8/fetch.js",
         cdn + "build/es6/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
         cdn + "build/es5-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+        cdn + "build/es5-amd/dist/app.js"
       ];
-      if (document.documentMode || /Edge/.test(navigator.userAgent)) { // stupid edge
-        defs.push(cdn + "build/es5-amd/dist/build-legacy.js");
-      }
-      else {
-        defs.push(cdn + "build/es5-amd/dist/build.js");
-      }
     }
     define(defs, function () { "use strict" });
   }
