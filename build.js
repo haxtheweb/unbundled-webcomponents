@@ -34,16 +34,16 @@ try {
     // FF 6x.x can be given ES6 compliant code safely
     if (/Firefox\/6/.test(navigator.userAgent) || window.customElements) {
       defs = [
-        cdn + "build/es6-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
         cdn + "assets/babel-top.js",
+        cdn + "build/es6-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
         cdn + "build/es6-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js",
         cdn + "build/es6-amd/dist/app.js"
       ];
     }
     else {
       defs = [
-        cdn + "build/es5-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
         cdn + "assets/babel-top.js",
+        cdn + "build/es5-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
         cdn + "build/es5-amd/node_modules/fetch-ie8/fetch.js",
         cdn + "build/es6/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
         cdn + "build/es5-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
@@ -54,7 +54,7 @@ try {
   }
   else {
     if (window.__appForceUpgrade) {
-      window.location = "upgrade-browser.html";
+      window.location = "assets/upgrade-browser.html";
     }
   }
 }
