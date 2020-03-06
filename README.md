@@ -1,7 +1,7 @@
 ## unbundled webcomponents
 This is an optimized workflow for those implementing unbundled builds for web components. The goal is to provide the easiest integration for unbundled builds, made popular by CDNs in large organizations. You have to use yarn because it supports `"flat": true,` which is required for unbundling to work
 
-## Using this repo
+## Using this repo in anything
 This is a starting point to do a build. Here's how to fork and customize it to be your own:
 - Install [yarn](https://classic.yarnpkg.com/en/docs/install/)
 - `git clone https://github.com/elmsln/unbundled-webcomponents.git` this repo
@@ -14,6 +14,15 @@ This is a starting point to do a build. Here's how to fork and customize it to b
 - add `<script src="./build.js"></script>` to the bottom of your app / CMS
 
 See `index.html` for a simple example and `advanced.html` for a slightly more advanced version. Congratulations, you now can build web components with a sustainable workflow for pushing our new tags to your CDN / other properties.
+
+### Using this repo in Drupal CMS (as an example of implementation, works with anything though)
+- download this repo
+- rename as `webcomponents`
+- place this in `sites/all/libraries/`
+- add new web components via `yarn add @lrnwebcomponents/h-a-x`
+- add `import "@lrnwebcomponents/h-a-x/h-a-x.js";` to the `dist/app.js` file
+- `yarn run build` from the `webcomponents` directory
+- You should now have everything in place for this to be wired up
 
 ### Why unbundled
 - If you are using a CDN approach where elements power multiple sites
