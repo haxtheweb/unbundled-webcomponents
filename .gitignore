@@ -1,4 +1,5 @@
 node_modules
 build
+wc-registry.json
 yarn.lock
 package-lock.json

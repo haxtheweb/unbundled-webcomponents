@@ -26,11 +26,13 @@
     "gulp": "4.0.2",
     "gulp-terser": "1.2.0",
     "polymer-build": "3.1.4",
-    "polymer-cli": "1.9.11"
+    "polymer-cli": "1.9.11",
+    "glob": "^7.1.6"
   },
   "scripts": {
-    "build": "polymer build && yarn run terser",
+    "build": "polymer build && yarn run terser && yarn run wc-autoloader",
     "start": "yarn run build",
-    "terser": "gulp"
+    "terser": "gulp terser",
+    "wc-autoloader": "gulp wc-autoloader"
   }
 }
