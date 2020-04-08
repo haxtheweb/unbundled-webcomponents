@@ -3,7 +3,6 @@ const terser = require("gulp-terser");
 const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
-const minifyJSTemplate = require('gulp-minify-html-literals');
 gulp.task(
   "terser", () => {
     // now work on all the other files
@@ -14,7 +13,6 @@ gulp.task(
         mangle: false,
         module: true,
       }))
-      .pipe(minifyJSTemplate())
       .pipe(gulp.dest('./build/es6/'));
     // now work on all the other files
     return gulp.src('./build/es6-amd/**/*.js')
@@ -24,7 +22,6 @@ gulp.task(
         module: true,
         safari10: true,
       }))
-      .pipe(minifyJSTemplate())
       .pipe(gulp.dest('./build/es6-amd/'));
   }
 );
