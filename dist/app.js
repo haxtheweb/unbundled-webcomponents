@@ -6,7 +6,6 @@
 // import "@lrnwebcomponents/h-a-x/h-a-x.js";
 // import "@lrnwebcomponents/hax-body/hax-body.js";
 // import "@lrnwebcomponents/hax-body-behaviors/hax-body-behaviors.js";
-// import "@lrnwebcomponents/hax-body-behaviors/hax-body-behaviors.js";
 // import "@lrnwebcomponents/product-card/lib/hax-element-list-selector.js";
 // import "@lrnwebcomponents/cms-hax/cms-hax.js";
 // import "@lrnwebcomponents/wysiwyg-hax/wysiwyg-hax.js";
