@@ -1,10 +1,13 @@
 window.process = {env: {NODE_ENV: "production"}};
 var cdn = "./";
-var ancient=false;
+var fname = "wc-registry.json";
 if (window.__appCDN) {
   cdn = window.__appCDN;
 }
-window.WCAutoloadRegistryFile = cdn + "wc-registry.json";
+if (window.WCGlobalRegistryFileName) {
+  fname = window.WCGlobalRegistryFileName;
+}
+window.WCAutoloadRegistryFile = cdn + fname;
 try {
   var def = document.getElementsByTagName("script")[0];
   // if a dynamic import fails, we bail over to the compiled version
