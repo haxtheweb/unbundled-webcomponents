@@ -18,6 +18,12 @@ This is a starting point to do a build. Here's how to fork and customize it to b
 
 See `index.html` for a simple example and `advanced.html` for a slightly more advanced version. Congratulations, you now can build web components with a sustainable workflow for pushing our new tags to your CDN / other properties.
 
+### Adding assets not caught by the bundler
+polymer.json has a `extraDependencies` property that accepts GLOBs to match files / assets not going to be caught by the bundler. The bundler will find anythign directly referenced (like `import "whatever.js";`) but will miss dynamically created things such as `style.css` file references in the HTML of a component. Adding to this array the specific additional assets to include helps ensure that everything is included in the output of the bundler.
+
+> Wait... I didn't think this was a bundler?!
+Well, polymer.json happens to do unbundled builds. It is a bundler / compiler but we're leveraging it just for the compiling capabilites and multiple output targets it provides. As a result, it does have some bundler-isms like having to define additional assets to include in the output, though they are left unbundled as well :)
+
 ### Using this repo in Drupal CMS (as an example of implementation, works with anything though)
 - download this repo
 - rename as `webcomponents`
@@ -41,7 +47,7 @@ See `index.html` for a simple example and `advanced.html` for a slightly more ad
 
 ## Tools in here
 This has a configuration of polymer.json, a format used by the polymer CLI in order to create 3 builds of your assets.
-- es6+ - This is labeled es6 but is running es8 capable build which all Evergreen browsers support
+- es6+ - This is labeled es6 but is running es8 capable build which all Evergreen browsers support.
 - es6-amd - a few rare versions of Safari and many older versions of Firefox could handle ES6 spec but NOT `import`
 - es5-amd - compiled to work on IE11, older versions of Edge, Firefox and Safari
 
