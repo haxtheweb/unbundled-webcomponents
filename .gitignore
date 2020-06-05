@@ -1,5 +1,12 @@
 node_modules
-build
+!build/es5-amd/node_modules
+!build/es5-amd/node_modules/**
+!build/es6-amd/node_modules
+!build/es6-amd/node_modules/**
+!build/es6/node_modules
+!build/es6/node_modules/**
 wc-registry.json
 yarn.lock
 package-lock.json
+.DS_Store
+build/es6/node_modules/@polymer/.DS_Store
