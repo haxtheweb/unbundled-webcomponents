@@ -8,29 +8,27 @@ This is an optimized workflow for those implementing unbundled builds for web co
 This is a starting point to do a build. Here's how to fork and customize it to be your own:
 - Install [yarn](https://classic.yarnpkg.com/en/docs/install/)
 - `git clone https://github.com/elmsln/unbundled-webcomponents.git` this repo
-- `cd unbundled-webcomponents` to move into the directory
+- `cd unbundled-webcomponents/app` to move into the directory
+- `yarn add` to add / install new elements or edit `app/package.json` directly
+- reference all the elements you want to import in `app/dist/app.js` or reference them in `app/dist/index.html`
 - `yarn install` to install dependencies
-- `yarn add` to add / install new elements
-- reference all the elements you want to import in `dist/app.js` or reference them in `build.html`
-- run `yarn start` which will generate a build
-- copy the `/build/` folder and `/build.js` file to your server / app location
-- add `<script src="./build.js"></script>` to the bottom of your app / CMS
-
-See `index.html` for a simple example and `advanced.html` for a slightly more advanced version. Congratulations, you now can build web components with a sustainable workflow for pushing our new tags to your CDN / other properties.
+- run `yarn run build` which will generate a build
+- copy the `/app/dist/` folder to your server / app location
+- add `<script src="./dist/build.js"></script>` to the bottom of your app / CMS or review `app/index.html` or `app/advanced.html` for more complete examples
 
 ### Adding assets not caught by the bundler
-polymer.json has a `extraDependencies` property that accepts GLOBs to match files / assets not going to be caught by the bundler. The bundler will find anythign directly referenced (like `import "whatever.js";`) but will miss dynamically created things such as `style.css` file references in the HTML of a component. Adding to this array the specific additional assets to include helps ensure that everything is included in the output of the bundler.
+`app/polymer.json` has a `extraDependencies` property that accepts GLOBs to match files / assets not going to be caught by the bundler. The bundler will find anythign directly referenced (like `import "whatever.js";`) but will miss dynamically created things such as `style.css` file references in the HTML of a component. Adding to this array the specific additional assets to include helps ensure that everything is included in the output of the bundler.
 
 > Wait... I didn't think this was a bundler?!
 Well, polymer.json happens to do unbundled builds. It is a bundler / compiler but we're leveraging it just for the compiling capabilites and multiple output targets it provides. As a result, it does have some bundler-isms like having to define additional assets to include in the output, though they are left unbundled as well :)
 
 ### Using this repo in Drupal CMS (as an example of implementation, works with anything though)
 - download this repo
-- rename as `webcomponents`
-- place this in `sites/all/libraries/`
 - add new web components via `yarn add @lrnwebcomponents/h-a-x`
-- add `import "@lrnwebcomponents/h-a-x/h-a-x.js";` to the `dist/app.js` file
-- `yarn run build` from the `webcomponents` directory
+- add `import "@lrnwebcomponents/h-a-x/h-a-x.js";` to the `app/src/app.js` file
+- do the build routine spelled out above
+- after `yarn run build`, rename the `app/dist/` folder to `webcomponents`
+- place this in `sites/all/libraries/`
 - You should now have everything in place for this to be wired up
 
 ### Why unbundled

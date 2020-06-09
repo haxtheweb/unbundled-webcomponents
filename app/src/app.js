@@ -4,6 +4,7 @@
 // Example in HAX as an example
 // import "@lrnwebcomponents/baseline-build-hax/baseline-build-hax.js";
 // import "@lrnwebcomponents/h-a-x/h-a-x.js";
+// import "@lrnwebcomponents/accent-card/accent-card.js";
 // import "@lrnwebcomponents/hax-body/hax-body.js";
 // import "@lrnwebcomponents/hax-body-behaviors/hax-body-behaviors.js";
 // import "@lrnwebcomponents/product-card/lib/hax-element-list-selector.js";

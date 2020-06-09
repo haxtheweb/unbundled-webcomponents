@@ -3,37 +3,47 @@ const terser = require("gulp-terser");
 const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
+
+gulp.task(
+  "move-build", async () => {
+    // delete distributed build directory prior to creation of a new one
+    fs.rmdirSync('./app/dist/build', { recursive: true });
+    // move files to productionb build path
+    return await fs.rename('./app/build', './app/dist/build', () => { return true;});
+  }
+);
+
 gulp.task(
   "terser", () => {
     // now work on all the other files
-    gulp.src('./build/es6/**/*.js')
+    gulp.src('./app/dist/build/es6/**/*.js')
       .pipe(terser({
         ecma: 2017,
         keep_fnames: true,
         mangle: false,
         module: true,
       }))
-      .pipe(gulp.dest('./build/es6/'));
+      .pipe(gulp.dest('./app/dist/build/es6/'));
     // now work on all the other files
-    return gulp.src('./build/es6-amd/**/*.js')
+    return gulp.src('./app/dist/build/es6-amd/**/*.js')
       .pipe(terser({
         keep_fnames: true,
         mangle: false,
         module: true,
         safari10: true,
       }))
-      .pipe(gulp.dest('./build/es6-amd/'));
+      .pipe(gulp.dest('./app/dist/build/es6-amd/'));
   }
 );
 
 gulp.task("wc-autoloader", async () => {
-  glob(path.join("./build/es6/node_modules/**/*.js"), (er, files) => {
+  glob(path.join("./app/dist/build/es6/node_modules/**/*.js"), (er, files) => {
     let elements = {};
     // async loop over files
     files.forEach((file) => {
       // grab the name of the file
       if (fs.existsSync(file)) {
-        let fLocation = file.replace("build/es6/node_modules/", "");
+        let fLocation = file.replace("app/dist/build/es6/node_modules/", "");
         const contents = fs.readFileSync(file, "utf8");
         // This Regex is looking for tags that are defined by string values
         // this will work for customElements.define("local-time",s))
@@ -88,7 +98,7 @@ gulp.task("wc-autoloader", async () => {
 
     // write entries to file
     fs.writeFileSync(
-      path.join(__dirname, "wc-registry.json"),
+      path.join(__dirname, "app/dist/wc-registry.json"),
       JSON.stringify(elements),
       "utf8"
     );

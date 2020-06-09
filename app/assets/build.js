@@ -22,6 +22,6 @@ try {
   def.parentNode.insertBefore(build, def);
 } catch (err) {
   var legacy = document.createElement("script");
-  legacy.src = cdn + "build-legacy.js";
+  legacy.src = cdn + "assets/build-legacy.js";
   def.parentNode.insertBefore(legacy, def);
 }

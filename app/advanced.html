@@ -38,7 +38,16 @@
   <md-block slot="col-2" source="https://raw.githubusercontent.com/btopro/ist402/master/files/glossary.md"></md-block>
 </grid-plate>
 </a11y-collapse>
-  <script>document.body.removeAttribute('no-js');window.__appCDN="https://cdn.webcomponents.psu.edu/cdn/";window.__appForceUpgrade=false;</script>
+  <script>
+    // useful for legacy browser / JS failure
+    document.body.removeAttribute('no-js');
+    // supply a CDN to load the assets over for the build
+    window.__appCDN="https://cdn.webcomponents.psu.edu/cdn/";
+    // if true, non-evergreen browsers get a "please upgrade" message
+    window.__appForceUpgrade=false;
+    // ability to override the name of the registry file; rare usage
+    window.WCGlobalRegistryFileName = "wc-registry-other-things.json";
+  </script>
   <script src="https://cdn.webcomponents.psu.edu/cdn/build.js"></script>
 </body>
 </html>

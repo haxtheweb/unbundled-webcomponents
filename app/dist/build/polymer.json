@@ -1,6 +1,11 @@
 {
-  "entrypoint": "dist/build.html",
+  "entrypoint": "index.html",
+  "fragments": [],
+  "sources": [
+    "index.html"
+  ],
   "extraDependencies": [
+    "bower_components/webcomponentsjs/*.js",
     "node_modules/fetch-ie8/fetch.js",
     "node_modules/promise-polyfill/dist/polyfill.min.js",
     "node_modules/web-animations-js/*.map",
@@ -11,11 +16,13 @@
     "node_modules/@webcomponents/webcomponentsjs/bundles/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js"
   ],
-  "sources": [],
   "builds": [
     {
       "name": "es6",
-      "browserCapabilities": ["es2017", "modules"],
+      "browserCapabilities": [
+        "es2017",
+        "modules"
+      ],
       "js": {
         "minify": false,
         "transformImportMeta": true
@@ -63,9 +70,12 @@
       "bundle": false
     }
   ],
-  "moduleResolution": "node",
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
   "npm": true,
-  "lint": { 
-    "rules": ["polymer-3"]
-  }
+  "componentDir": "node_modules/",
+  "moduleResolution": "node"
 }
