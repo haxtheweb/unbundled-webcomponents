@@ -1,5 +1,5 @@
 {
-  "entrypoint": "index.html",
+  "entrypoint": "src/index.html",
   "extraDependencies": [
     "node_modules/fetch-ie8/fetch.js",
     "node_modules/promise-polyfill/dist/polyfill.min.js",
