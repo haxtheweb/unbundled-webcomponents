@@ -44,9 +44,8 @@ Well, polymer.json happens to do unbundled builds. It is a bundler / compiler bu
 - webpack / rollup by themselves will make smaller asset bundles and your shipping 1 stand alone app as opposed to several sites across a CDN
 
 ## Tools in here
-This has a configuration of polymer.json, a format used by the polymer CLI in order to create 3 builds of your assets.
+This has a configuration of polymer.json, a format used by the polymer CLI in order to create 2 builds of your assets.
 - es6+ - This is labeled es6 but is running es8 capable build which all Evergreen browsers support.
-- es6-amd - a few rare versions of Safari and many older versions of Firefox could handle ES6 spec but NOT `import`
 - es5-amd - compiled to work on IE11, older versions of Edge, Firefox and Safari
 
 ### Polymer? We don't want no stinkin..

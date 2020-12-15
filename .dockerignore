@@ -2,7 +2,5 @@ node_modules
 !build/node_modules
 !build/es5-amd/node_modules
 !build/es5-amd/node_modules/**
-!build/es6-amd/node_modules
-!build/es6-amd/node_modules/**
 !build/es6/node_modules
 !build/es6/node_modules/**
