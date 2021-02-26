@@ -37,9 +37,11 @@ try {
   // insert polyfill for web animations. We don't get here in legacy platforms
   // and this is because not everything supports web animations and it's a popular
   // thing to implement in advanced web development
-  var ani = document.createElement("script");
-  ani.src = cdn + "build/es6/node_modules/web-animations-js/web-animations-next-lite.min.js";
-  def.parentNode.insertBefore(ani, def);
+  if (!Element.prototype.animate){
+    var ani = document.createElement("script");
+    ani.src = cdn + "build/es6/node_modules/web-animations-js/web-animations-next-lite.min.js";
+    def.parentNode.insertBefore(ani, def);
+  }
   // create our autoloader script, which is a JS module and inject into the dom
   // this does all the real work of automatically loading our web components
   var build = document.createElement("script");
