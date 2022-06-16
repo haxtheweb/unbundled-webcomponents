@@ -2,7 +2,7 @@
 This is an optimized workflow for those implementing unbundled builds for web components. The goal is to provide the easiest integration for unbundled builds, made popular by CDNs in large organizations. You have to use yarn because it supports `"flat": true,` which is required for unbundling to work
 
 ## Example from the advanced.html file
-[Check out the advanced HTML file on rawgit](https://ghcdn.rawgit.org/elmsln/unbundled-webcomponents/master/advanced.html) to see what's happening. Your site hydrates based on finding tags that are undefined. You'd put these in your application or on a CDN and then the integration methodology is the same every time regardless of app!
+[Check out the advanced HTML file](https://github.com/elmsln/unbundled-webcomponents/blob/master/app/advanced.html) to see what's happening. Your site hydrates based on finding tags that are undefined. You'd put these in your application or on a CDN and then the integration methodology is the same every time regardless of app!
 
 ## Using this repo in anything
 This is a starting point to do a build. Here's how to fork and customize it to be your own:
