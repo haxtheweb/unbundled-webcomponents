@@ -34,6 +34,7 @@ else {
     defs = [
       cdn + "assets/babel-top.js",
       cdn + "build/es5-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
+      cdn + "build/es5-amd/node_modules/lit/polyfill-support.js",
       cdn + "build/es5-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js",
     ];
   }
@@ -42,6 +43,7 @@ else {
       cdn + "assets/babel-top.js",
       cdn + "build/es5-amd/node_modules/web-animations-js/web-animations-next-lite.min.js",
       cdn + "build/es5-amd/node_modules/fetch-ie8/fetch.js",
+      cdn + "build/es5-amd/node_modules/lit/polyfill-support.js",
       cdn + "build/es6/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
       cdn + "build/es5-amd/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
     ];

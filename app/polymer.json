@@ -3,6 +3,7 @@
   "extraDependencies": [
     "node_modules/fetch-ie8/fetch.js",
     "node_modules/promise-polyfill/dist/polyfill.min.js",
+    "node_modules/lit/polyfill-support.js",
     "node_modules/web-animations-js/*.map",
     "node_modules/web-animations-js/*.js",
     "node_modules/@lrnwebcomponents/wc-autoload/wc-autoload.js",
