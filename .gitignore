@@ -4,6 +4,7 @@ node_modules
 !app/dist/build/es6/node_modules
 !app/dist/build/es6/node_modules/**
 app/dist/wc-registry.json
+app/dist
 yarn.lock
 package-lock.json
 .DS_Store

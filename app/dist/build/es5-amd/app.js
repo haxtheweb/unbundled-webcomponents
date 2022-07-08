@@ -1,1 +1,0 @@
-define(["./node_modules/@lrnwebcomponents/h-a-x/h-a-x.js","./node_modules/@lrnwebcomponents/accent-card/accent-card.js"],function(_hAX,_accentCard){"use strict"});
