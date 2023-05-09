@@ -28,22 +28,6 @@
         "minify": false
       },
       "bundle": false
-    },
-    {
-      "name": "es5-amd",
-      "js": {
-        "compile": true,
-        "minify": true,
-        "transformModulesToAmd": true,
-        "transformImportMeta": true
-      },
-      "css": {
-        "minify": true
-      },
-      "html": {
-        "minify": true
-      },
-      "bundle": false
     }
   ],
   "moduleResolution": "node",

@@ -54,9 +54,14 @@ try {
   // ship to older platforms but not bloating up newer platforms.
   // as of Nov 2020 this code will only run on ~%5 of web traffic at most
   // which is incredible as when we 1st did this script that was ~20%, Oct 2018
-  var legacy = document.createElement("script");
-  legacy.src = cdn + "assets/build-polyfills.js";
-  def.parentNode.insertBefore(legacy, def);
+  // May 2023, we have removed support for this OOTB as we're now at incredibly small numbers that won't just get it
+  // and build cycles don't justify it still being used!
+  //var legacy = document.createElement("script");
+  //legacy.src = cdn + "assets/build-polyfills.js";
+  //def.parentNode.insertBefore(legacy, def);
+  //var buildLegacy = document.createElement("script");
+  //buildLegacy.src = cdn + "assets/build-legacy-es5-support.js";
+  //def.parentNode.insertBefore(buildLegacy, def);
   // IntersectionObserver and other common polyfills
   var buildLegacy = document.createElement("script");
   buildLegacy.src = cdn + "assets/build-legacy.js";

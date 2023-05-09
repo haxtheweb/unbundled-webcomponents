@@ -46,7 +46,6 @@ Well, polymer.json happens to do unbundled builds. It is a bundler / compiler bu
 ## Tools in here
 This has a configuration of polymer.json, a format used by the polymer CLI in order to create 2 builds of your assets.
 - es6+ - This is labeled es6 but is running es8 capable build which all Evergreen browsers support.
-- es5-amd - compiled to work on IE11, older versions of Edge, Firefox and Safari
 
 ### Polymer? We don't want no stinkin..
 This uses the polymer CLI for the time being. Once other plugins are written to do in-place, unbundled file building we'll update but for now it does a great job and has no requirement on using polymer in your project as it's just for commandline.
