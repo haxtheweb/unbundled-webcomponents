@@ -88,6 +88,14 @@ function fallbackChecks(e) {
         // if the module fails to load at the set CDN location, try to fail back to known sources
         if (cdn === "./") {
             // psu fallback
+            window.__appCDN = "https://cdn.hax.cloud/cdn/";
+            window.WCAutoloadRegistryFile = window.WCAutoloadRegistryFile.replace(cdn, window.__appCDN);
+            build.src = window.__appCDN + autoloaderScriptLocation;
+            def.parentNode.insertBefore(build, def);
+            console.warn(cdn + " failed to respond, falling back to alternative: " + window.__appCDN);
+        }
+        else if (cdn === "https://cdn.hax.cloud/cdn/") {
+            // known mirror
             window.__appCDN = "https://cdn.webcomponents.psu.edu/cdn/";
             window.WCAutoloadRegistryFile = window.WCAutoloadRegistryFile.replace(cdn, window.__appCDN);
             build.src = window.__appCDN + autoloaderScriptLocation;
@@ -95,12 +103,12 @@ function fallbackChecks(e) {
             console.warn(cdn + " failed to respond, falling back to alternative: " + window.__appCDN);
         }
         else if (cdn === "https://cdn.webcomponents.psu.edu/cdn/") {
-            // known mirror
-            window.__appCDN = "https://cdn.waxam.io/";
-            window.WCAutoloadRegistryFile = window.WCAutoloadRegistryFile.replace(cdn, window.__appCDN);
-            build.src = window.__appCDN + autoloaderScriptLocation;
-            def.parentNode.insertBefore(build, def);
-            console.warn(cdn + " failed to respond, falling back to alternative: " + window.__appCDN);
+          // known mirror
+          window.__appCDN = "https://cdn.waxam.io/";
+          window.WCAutoloadRegistryFile = window.WCAutoloadRegistryFile.replace(cdn, window.__appCDN);
+          build.src = window.__appCDN + autoloaderScriptLocation;
+          def.parentNode.insertBefore(build, def);
+          console.warn(cdn + " failed to respond, falling back to alternative: " + window.__appCDN);
         }
         else {
             // :( we're out of options, just reset these values to default

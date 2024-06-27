@@ -5,7 +5,7 @@
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "git@github.com/elmsln/unbundled-webcomponents.git"
+    "url": "git@github.com/haxtheweb/unbundled-webcomponents.git"
   },
   "author": {
     "name": "btopro"
