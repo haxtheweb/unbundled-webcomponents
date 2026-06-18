@@ -3,4 +3,3 @@ app/dist
 yarn.lock
 package-lock.json
 .DS_Store
-build/es6/node_modules/@polymer/.DS_Store

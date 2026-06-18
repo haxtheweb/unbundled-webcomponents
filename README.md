@@ -53,8 +53,6 @@ This uses the polymer CLI for the time being. Once other plugins are written to 
 ## How does it work?
 The file in `/build.js` does feature detection in order to establish if this is an ESM capable platform or needs a different build at run time. This reduces the integration with your platform / CMS / application down to two lines of `<script>` tags. The 1st adds support for CDNs as well as an option for `forceUpdate` which if the browser can't serve the build.js file it will force the user to a page asking them to upgrade.
 
-We feature detect `import()` which 90+% of traffic supports as of end of 2019 and inject ES module based `<script type="module">` imports. From there we try and detect which polyfills are needed based on the platform.
-
 It has been heavily battle tested and is used in production in mutliple domains and websites.
 
 ## Who dis

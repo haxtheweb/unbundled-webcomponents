@@ -18,14 +18,22 @@
     "access": "public"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-proposal-logical-assignment-operators": "7.20.7",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-transform-optional-catch-binding": "7.23.4",
+    "@babel/preset-env": "7.29.5",
     "gulp": "4.0.2",
     "gulp-terser": "1.2.0",
     "polymer-build": "3.1.4",
     "polymer-cli": "1.9.11",
-    "glob": "^7.1.6"
+    "glob": "7.1.6",
+    "patch-package": "8.0.1"
   },
+
   "scripts": {
-    "postinstall": "cd app && yarn install && cd ../",
+    "postinstall": "./node_modules/.bin/patch-package && cd app && yarn install && cd ../",
     "build": "cd app && polymer build && cd ../ && yarn run move-build && yarn run terser && yarn run wc-autoloader",
     "move-build": "gulp move-build --gulpfile=gulpfile.cjs",
     "start": "yarn run build",

@@ -16,18 +16,12 @@
   <base href="/"/>
   <title>Your App</title>
   <style>
-    body[no-js] your-app {
-      display: none !important;
-    }
     .somefallback {
       display: none;
     }
-    body[no-js] .somefallback {
-      display: block;
-    }
   </style>
 </head>
-<body no-js>
+<body>
   <div class="somefallback"></div>
   <your-app></your-app>
   <a11y-collapse>
@@ -38,14 +32,12 @@
 </grid-plate>
 </a11y-collapse>
   <script>
-    // useful for legacy browser / JS failure
-    document.body.removeAttribute('no-js');
     // supply a CDN to load the assets over for the build
-    window.__appCDN="https://cdn.webcomponents.psu.edu/cdn/";
+    globalThis.__appCDN="https://cdn.webcomponents.psu.edu/cdn/";
     // if true, non-evergreen browsers get a "please upgrade" message
-    window.__appForceUpgrade=false;
+    globalThis.__appForceUpgrade=false;
     // ability to override the name of the registry file; rare usage
-    window.WCGlobalRegistryFileName = "wc-registry-other-things.json";
+    globalThis.WCGlobalRegistryFileName = "wc-registry-other-things.json";
   </script>
   <script src="https://cdn.webcomponents.psu.edu/cdn/build.js"></script>
 </body>

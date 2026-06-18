@@ -8,20 +8,20 @@ const path = require("path");
 gulp.task(
   "move-build", async () => {
     // delete distributed build directory prior to creation of a new one
-    fs.rmdirSync('./app/dist/build', { recursive: true });
+    fs.rmdirSync('./app/dist/build', { recursive: true, force: true });
     // move files to productionb build path
     return await fs.rename('./app/build', './app/dist/build', () => { return true;});
   }
 );
-
+  
 gulp.task(
   "terser", () => {
     // now work on all the other files
     return gulp.src('./app/dist/build/es6/**/*.js')
       .pipe(terser({
-        ecma: 2017,
+        ecma: 2022,
         keep_fnames: true,
-        mangle: false,
+        mangle: true,
         module: true,
       }))
       .pipe(gulp.dest('./app/dist/build/es6/'));
