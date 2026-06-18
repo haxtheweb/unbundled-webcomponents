@@ -27,24 +27,20 @@ var autoloaderScriptLocation = "build/es6/node_modules/@haxtheweb/wc-autoload/wc
 // this try block ensures that if anything fails here we don't support it
 // with a modern interface and it'll be a iframe structure. While imperfect, a dynamic import()
 // will fall almost perfectly along the lines of what to ship the end user
-try {
-  // find the 1st script tag. We know this exists because our own script HAD
-  // to be appended to the document that is running. Most likely this finds
-  // the code running presently which is humorous.
-  var def = document.getElementsByTagName("script")[0];
-  // if a dynamic import fails, we bail over to the compiled version
-  // this has to be run as a Function executed on its own otherwise FF and
-  // older platforms will bomb because they read this as a parse error
-  new Function("import('');");
+// capture the current script as a stable DOM insertion anchor
+var anchor = globalThis.document.currentScript || globalThis.document.getElementsByTagName("script")[0];
+
+// ESM detection via native feature check
+if ("noModule" in HTMLScriptElement.prototype) {
   // create our autoloader script, which is a JS module and inject into the dom
   // this does all the real work of automatically loading our web components
-  var build = document.createElement("script");
+  var build = globalThis.document.createElement("script");
   build.src = cdn + autoloaderScriptLocation;
   build.type = "module";
-  build.onerror = (e) => { fallbackChecks(e);};
-  def.parentNode.insertBefore(build, def);
-} catch (err) {
-  console.error("Error occurred while trying to load the autoloader:", err);
+  build.onerror = (e) => { fallbackChecks(e); };
+  anchor.parentNode.insertBefore(build, anchor);
+} else {
+  console.error("ES modules not supported by this browser.");
 }
 // if we fail to load the module, we need to fall back to known sources
 // and reattempt to inject the CDN location. This is a last ditch effort
@@ -54,7 +50,7 @@ try {
 function fallbackChecks(e) {
     var cdn = globalThis.__appCDN;
     if (!globalThis.__appCDNBlockFallback) {
-        var build = document.createElement("script");
+        var build = globalThis.document.createElement("script");
         build.type = "module";
         build.onerror = (e) => { fallbackChecks(e);};
         // if the module fails to load at the set CDN location, try to fail back to known sources
@@ -63,7 +59,7 @@ function fallbackChecks(e) {
             globalThis.__appCDN = "https://cdn.hax.cloud/cdn/";
             globalThis.WCAutoloadRegistryFile = globalThis.WCAutoloadRegistryFile.replace(cdn, globalThis.__appCDN);
             build.src = globalThis.__appCDN + autoloaderScriptLocation;
-            def.parentNode.insertBefore(build, def);
+            anchor.parentNode.insertBefore(build, anchor);
             console.warn(cdn + " failed to respond, falling back to alternative: " + globalThis.__appCDN);
         }
         else if (cdn === "https://cdn.hax.cloud/cdn/") {
@@ -71,7 +67,7 @@ function fallbackChecks(e) {
             globalThis.__appCDN = "https://cdn.webcomponents.psu.edu/cdn/";
             globalThis.WCAutoloadRegistryFile = globalThis.WCAutoloadRegistryFile.replace(cdn, globalThis.__appCDN);
             build.src = globalThis.__appCDN + autoloaderScriptLocation;
-            def.parentNode.insertBefore(build, def);
+            anchor.parentNode.insertBefore(build, anchor);
             console.warn(cdn + " failed to respond, falling back to alternative: " + globalThis.__appCDN);
         }
         else {

@@ -21,7 +21,7 @@ gulp.task(
       .pipe(terser({
         ecma: 2022,
         keep_fnames: true,
-        mangle: true,
+        mangle: false,
         module: true,
       }))
       .pipe(gulp.dest('./app/dist/build/es6/'));
